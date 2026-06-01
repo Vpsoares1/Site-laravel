@@ -29,16 +29,20 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Coleção de inverno</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('inverno') }}">Coleção de inverno</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="artistas.html">Artistas</a>
+                            <a class="nav-link" href="{{ route('artistas') }}">Artistas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="filtro.html">Filtrar</a>
+                            <a class="nav-link" href="{{ route('filtro') }}">Filtrar</a>
+                        </li>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tamanho') }}">Filtrar por tamanho</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flame.html">Home</a>
+                            <a class="nav-link" href="{{ route('inicio') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -46,8 +50,8 @@
                                 Itens
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="camisas.html">Camisas</a></li>
-                                <li><a class="dropdown-item" href="shorts.html">Shorts</a></li>
+                                <li><a class="dropdown-item" href="{{ route('camisas') }}">Camisas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('shorts') }}">Shorts</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

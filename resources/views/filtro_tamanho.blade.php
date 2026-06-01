@@ -12,11 +12,11 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="filtro.js"></script>
+    <script src="tamanhofiltro.js"></script>
 </head>
 
 <body style="background-color: black;">
-   <nav class="navbar fixed-top" style="background-color: black;" data-bs-theme="dark">
+    <nav class="navbar fixed-top" style="background-color: black;" data-bs-theme="dark">
         <div class="container-fluid"> <br>
             <img src="FLAME(2).png" alt="">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -35,17 +35,10 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('inverno') }}">Coleção de inverno</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ routw('artistas') }}">Artistas</a>
+                            <a class="nav-link" href="{{ route('artistas') }}">Artistas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('inicio') }}">Home</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('filtro') }}">Filtrar</a>
-                        </li>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tamanho') }}">Filtrar por tamanho</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -54,7 +47,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('camisas') }}">Camisas</a></li>
-                                <li><a class="dropdown-item" href="{{ route)'shorts' }}">Shorts</a></li>
+                                <li><a class="dropdown-item" href="{{ route('shorts') }}">Shorts</a></li>
+                                <li><a class="dropdown-item" href="{{ route('filtro') }}">Filtrar</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -62,7 +56,7 @@
                         </li>
                     </ul>
                     <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" />
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" />
                         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
                     </form>
                 </div>
@@ -71,33 +65,24 @@
     </nav>
     <div id="carouselExample" class="carousel slide" style="margin-top: 80px;">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="image-Photoroom.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <img src="image-Photoroom(2).png" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item active">
                 <img src="67.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-
-    <button type="button" class="btn" id="btncamisa" data-bs-toggle="button" style="color: rgb(255, 255, 255); margin-left: 490px;"><h5>Camisas</h5></button>
-    <button type="button" class="btn" id="btnshorts" data-bs-toggle="button" style="color: white;"><h5>Shorts</h5></button>
-    <button type="button" class="btn" id="btncalça" data-bs-toggle="button" style="color: white;"><h5>Calças</h5></button>
-    <button type="button" class="btn" id="btnmoletom" data-bs-toggle="button" style="color: white;"><h5>Moletom</h5></button>
-    <button type="button" class="btn" id="btnsemfiltro" data-bs-toggle="button" style="color: white;"><h5>Retirar Filtro</h5></button>
+    <button type="button" class="btn" id="btncamisap" data-bs-toggle="button" style="color: rgb(255, 255, 255); margin-left: 650px;"><h3>P</h3></button>
+    <button type="button" class="btn" id="btncamisam" data-bs-toggle="button" style="color: white;"><h3>M</h3></button>
+    <button type="button" class="btn" id="btncamisag" data-bs-toggle="button" style="color: white;"><h3>G</h3></button>
+    <button type="button" class="btn" id="btncamisagg" data-bs-toggle="button" style="color: white;"><h3>GG</h3></button>
+    <button type="button" class="btn" id="btncamisatudo" data-bs-toggle="button" style="color: white;"><h3>Todos</h3></button>
     <div class="row">
-        <div class="Camisas col-lg-4 ">
+        <div class="camisap col-lg-4 ">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa b.webp" class="card-img-top" alt="...">
@@ -108,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="Moletom col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="moletom b.png" class="card-img-top" alt="...">
@@ -119,7 +104,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa a.webp" class="card-img-top" alt="...">
@@ -130,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisagg col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="05flame(1).png" class="card-img-top" alt="...">
@@ -141,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="Moletom col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="moletom a.png" class="card-img-top" alt="...">
@@ -152,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts-removebg-preview.png" class="card-img-top" alt="...">
@@ -163,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa.jpg" class="card-img-top" alt="...">
@@ -174,7 +159,7 @@
                 </div>
             </div>
         </div>
-        <div class="Moletom col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="moletom 3-Photoroom(1).png" class="card-img-top" alt="...">
@@ -185,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 4.webp" class="card-img-top" alt="...">
@@ -196,7 +181,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 5.webp" class="card-img-top" alt="...">
@@ -207,7 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa c.png" class="card-img-top" alt="...">
@@ -218,7 +203,7 @@
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts a_magic.png" class="card-img-top" alt="...">
@@ -229,7 +214,7 @@
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts 4.png" class="card-img-top" alt="...">
@@ -240,7 +225,7 @@
                 </div>
             </div>
         </div>
-        <div class="Moletom col-lg-4">
+        <div class="camisagg col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="Flame moletom(1).png" class="card-img-top" alt="...">
@@ -251,7 +236,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 7.png" class="card-img-top" alt="...">
@@ -262,7 +247,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisagg col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 8.png" class="card-img-top" alt="...">
@@ -273,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <div class="Calça col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="calça 4.png" class="card-img-top" alt="...">
@@ -284,7 +269,7 @@
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts 6.png" card-img-top" alt="...">
@@ -295,7 +280,7 @@
                 </div>
             </div>
         </div>
-        <div class="Moletom col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="Flame moletom 5.png" class="card-img-top" alt="...">
@@ -306,7 +291,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 9.png" class="card-img-top" alt="...">
@@ -317,7 +302,7 @@
                 </div>
             </div>
         </div>
-        <div class="Calça col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="calça 3-Photoroom.png" class="card-img-top" alt="...">
@@ -328,7 +313,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 10.png" class="card-img-top" alt="...">
@@ -339,7 +324,7 @@
                 </div>
             </div>
         </div>
-        <div class="Calça col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="calça flame.png" class="card-img-top" alt="...">
@@ -350,18 +335,18 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 11.png" class="card-img-top" alt="...">
                 <div class="card-body"> <br>
-                    <h5 class="card-title" style="color: white;"">Sifnature Black FLAME Tee</h5>
+                    <h5 class="card-title" style="color: white;"">Signature Black FLAME Tee</h5>
                 <p class=" card-text" style="color: white;">199,18 R$</p>
                         <a href="pagamento.html" class="btn btn-outline-light">Comprar</a>
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisam col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts 7.png" card-img-top" alt="...">
@@ -372,7 +357,7 @@
                 </div>
             </div>
         </div>
-        <div class="Camisas col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="camisa 12.png" class="card-img-top" alt="...">
@@ -383,7 +368,7 @@
                 </div>
             </div>
         </div>
-        <div class="Shorts col-lg-4">
+        <div class="camisag col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="shorts 3.png" card-img-top" alt="...">
@@ -394,7 +379,7 @@
                 </div>
             </div>
         </div>
-        <div class="Calça col-lg-4">
+        <div class="camisap col-lg-4">
             <div class="card bg-transparent" style="width: 28rem; margin-top: 30px; margin-left: 50px;"
                 class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
                 <img src="calça 2.png" class="card-img-top" alt="...">

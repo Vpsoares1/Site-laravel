@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('roupas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->text('descrição')->nullable();
+            $table->decimal('preço', 10, 2)->default(0.00);
+            $table->integer('estoque')->default(0);
+            $table->string('tamanho')->nullable();
+            $table->string('peça')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('roupas');
+    }
+};
